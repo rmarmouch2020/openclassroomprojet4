@@ -97,16 +97,13 @@ def play_tournament(tournament, new_tournament_loaded=False):
                                 "1 - Voir les classements\n"
                                 "2 - Mettre à jour les classements\n"
                                 "3 - Sauvegarder le tournoi\n"
-                                "4 - Charger un tournoi\n> "
-                                "5 - quitter\n> ",
+                                "4 - Charger un tournoi\n> ",
                     msg_error="Veuillez faire un choix.",
                     value_type="selection",
-                    assertions=["0", "1", "2", "3", "4", "5"]
+                    assertions=["0", "1", "2", "3", "4"]
                 )
                 print()
-                # quitter
-                if user_input == "5":
-                    break
+                q = False
                 # Round suivant
                 if user_input == "0":
                     current_round.mark_as_complete()
@@ -130,6 +127,7 @@ def play_tournament(tournament, new_tournament_loaded=False):
 
                 # Sauvegarder le tournoi
                 elif user_input == "3":
+                    q = True
                     rankings = tournament.get_rankings()
                     for i, player in enumerate(rankings):
                         for t_player in tournament.players:
@@ -144,10 +142,10 @@ def play_tournament(tournament, new_tournament_loaded=False):
                     new_tournament_loaded = True
                     break
 
-            if new_tournament_loaded:
+            if new_tournament_loaded or q == True:
                 break
 
-        if new_tournament_loaded:
+        if new_tournament_loaded and q != True:
             continue
 
         else:
