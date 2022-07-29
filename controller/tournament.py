@@ -100,10 +100,12 @@ def play_tournament(tournament, new_tournament_loaded=False):
                                 "4 - Charger un tournoi\n> ",
                     msg_error="Veuillez faire un choix.",
                     value_type="selection",
-                    assertions=["0", "1", "2", "3", "4"]
+                    assertions=["0", "1", "2", "3", "4", "5"]
                 )
                 print()
-
+                # quitter
+                if user_input == "5":
+                    break
                 # Round suivant
                 if user_input == "0":
                     current_round.mark_as_complete()
