@@ -97,7 +97,8 @@ def play_tournament(tournament, new_tournament_loaded=False):
                                 "1 - Voir les classements\n"
                                 "2 - Mettre à jour les classements\n"
                                 "3 - Sauvegarder le tournoi\n"
-                                "4 - Charger un tournoi\n> ",
+                                "4 - Charger un tournoi\n> "
+                                "5 - quitter\n> ",
                     msg_error="Veuillez faire un choix.",
                     value_type="selection",
                     assertions=["0", "1", "2", "3", "4"]
